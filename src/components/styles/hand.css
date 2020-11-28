@@ -1,0 +1,173 @@
+.handContainer {
+  color: white;
+  display: flex;
+  align-items: justify;
+  flex-direction: column;
+  margin: 0.5em;
+}
+
+.cardContainer {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.title {
+  text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .title {
+    font-size: 150%;
+  }
+}
+
+/* Login page css changes
+ */
+h1 #black {
+  font-weight: 700;
+  font-size: 2em;
+  margin: 0;
+  cursor: default;
+  user-select: none;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  animation: zoomleft 1s;
+}
+
+h1 #jack {
+  font-weight: 700;
+  font-size: 2em;
+  margin: 0;
+  cursor: default;
+  user-select: none;
+  color: red;
+  text-shadow: -1px 0 darkgreen, 0 1px darkgreen, 1px 0 darkgreen,
+    0 -1px darkgreen;
+  text-shadow: -1px 0 white, 0 1px white, 1px 0 white, 0 -1px white;
+  margin-left: -5px;
+  animation: zoomright 1s;
+}
+
+@keyframes zoomleft {
+  0% {
+    margin-right: -300px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    margin-right: -10px;
+    opacity: 1;
+  }
+}
+
+@keyframes zoomright {
+  0% {
+    margin-left: -300px;
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+  }
+  100% {
+    margin-left: -10px;
+    opacity: 1;
+  }
+}
+
+.input-field {
+  position: relative;
+  width: 20%;
+  height: 20%;
+  line-height: 5vh;
+}
+label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: #0e290d;
+  font-weight: 600;
+  transition: 0.2s all;
+  cursor: text;
+  text-align: left;
+}
+input {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  padding: 0.5rem 0;
+  border-bottom: 2px solid #d3d3d3;
+  box-shadow: none;
+  color: #111;
+}
+input:invalid {
+  outline: 0;
+  color: #ff2300;
+  border-color: #ff2300;
+}
+input:focus,
+input:valid {
+  border-color: #17275fd7;
+}
+input:focus ~ label,
+input:valid ~ label {
+  font-size: 1rem;
+  top: -24px;
+  color: #00dd22;
+}
+
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding-top: 10vh;
+}
+.icon-enabled {
+  color: #fd7e14;
+  margin-left: -4vh;
+}
+
+.icon-disabled {
+  color: #a7a6a5;
+  margin-left: -4vh;
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/*haeder css*/
+.back-home {
+  display: inline-block;
+  text-decoration: none;
+  color: rgba(15, 14, 14, 0.43); /*IconColor*/
+  width: 65px;
+  height: 65px;
+  line-height: 80px;
+  font-size: 40px;
+  border-radius: 50%;
+  text-align: center;
+  vertical-align: middle;
+  overflow: hidden;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+  background-image: linear-gradient(#e8e8e8 0%, #d6d6d6 100%);
+  text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.66);
+  box-shadow: inset 0 2px 0 rgba(255, 255, 255, 0.5),
+    0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: solid 2px #ff1201;
+}
+.back-home .back-home-icon {
+  /*Button itself*/
+  line-height: 80px;
+}
+
+.back-home-icon:active {
+  background-image: -webkit-linear-gradient(#efefef 0%, #d6d6d6 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    0 2px 2px rgba(0, 0, 0, 0.19);
+  border-bottom: none;
+}
