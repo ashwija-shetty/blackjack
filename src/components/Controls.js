@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./styles/controls.css";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
+
 function Controls(props) {
   const [amount, setAmount] = useState(10);
   const [inputStyle, setInputStyle] = useState("input");
@@ -26,8 +29,9 @@ function Controls(props) {
     setAmount(e.target.value);
   };
 
-  const onBetClick = () => {
+  const onBetClick = (e) => {
     if (validation()) {
+      console.log(e);
       props.betEvent(Math.round(amount * 100) / 100);
     }
   };
@@ -37,18 +41,22 @@ function Controls(props) {
       return (
         <div className="controlsContainer">
           <div className="betContainer">
-            <h4>Amount:</h4>
+            <h1 style={{ margin: "0 " }}>Bet Amount:</h1>
             <input
               autoFocus
               type="number"
               value={amount}
               onChange={amountChange}
               className={inputStyle}
+              style={{ fontSize: "25px" }}
             />
           </div>
-          <button onClick={() => onBetClick()} className="button">
-            Bet
-          </button>
+          <FontAwesomeIcon
+            className="bet-button"
+            icon={faSignInAlt}
+            size="4x"
+            onClick={(e) => onBetClick(e)}
+          />
         </div>
       );
     } else {
@@ -61,10 +69,10 @@ function Controls(props) {
               props.buttonState.hitDisabled === true ? "btn-hidden" : "btn"
             }
             style={{
-              background: "#3b0e8ddb",
+              color: "#42a1ec",
             }}
           >
-            Hit
+            HIT
           </button>
 
           <button
@@ -74,10 +82,10 @@ function Controls(props) {
               props.buttonState.standDisabled === true ? "btn-hidden" : "btn"
             }
             style={{
-              background: "#3b0e8ddb",
+              color: "#F44336",
             }}
           >
-            <span>Stand</span>
+            STAND
           </button>
           <button
             onClick={() => props.resetEvent()}
@@ -87,10 +95,10 @@ function Controls(props) {
               props.buttonState.resetDisabled === true ? "btn-hidden" : "btn"
             }
             style={{
-              background: "#3b0e8ddb",
+              color: "#f7e543",
             }}
           >
-            Play Again
+            PLAY AGAIN
           </button>
         </div>
       );

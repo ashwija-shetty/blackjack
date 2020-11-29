@@ -20,19 +20,9 @@ export class Status extends Component {
               }}
               icon={faCoins}
             />
-            {this.props.balance}
+            <span style={{ paddingRight: "2vh" }}>{this.props.balance}</span>
           </h1>
         </div>
-        {/* <div className="status">
-          <h1 className="value">
-            <FontAwesomeIcon
-              size="2x"
-              style={{ paddingRight: "1vh", color: "#f7e543" }}
-              icon={faCoins}
-            />
-            {this.props.balance}
-          </h1>
-        </div> */}
       </div>
     );
   }

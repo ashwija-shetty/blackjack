@@ -25,8 +25,8 @@ function Game(props) {
     bet: "Place a Bet!",
     hitStand: "Hit or Stand?",
     bust: "You're Busted!",
-    userWin: "You Win!",
-    dealerWin: "Dealer Wins!",
+    userWin: "You Won!",
+    dealerWin: "Dealer Won!",
     tie: "Its a Tie!",
   };
 
@@ -221,10 +221,6 @@ function Game(props) {
   };
 
   const hit = () => {
-    //drawCard(Deal.user);
-
-    //userCards.length = 0;
-    //setUserCards([...userCards]);
     axios
       .get(
         `http://blackjack.us-e2.cloudhub.io/api/hit?uid=${props.values.name}`
@@ -288,20 +284,30 @@ function Game(props) {
 
   return (
     <>
-      <Status
-        message={message}
-        balance={balance}
-        playerName={props.values.name}
-      />
-      <Controls
-        balance={balance}
-        gameState={gameState}
-        buttonState={buttonState}
-        betEvent={placeBet}
-        hitEvent={hit}
-        standEvent={stand}
-        resetEvent={resetGame}
-      />
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          marginTop: "-5vh",
+        }}
+      >
+        <Controls
+          balance={balance}
+          gameState={gameState}
+          buttonState={buttonState}
+          betEvent={placeBet}
+          hitEvent={hit}
+          standEvent={stand}
+          resetEvent={resetGame}
+        />
+        <Status
+          message={message}
+          balance={balance}
+          playerName={props.values.name}
+        />
+      </div>
+
+      <div></div>
       <Hand title={`Dealer's Hand (${dealerScore})`} cards={dealerCards} />
       <Hand title={`Your Hand (${userScore})`} cards={userCards} />
     </>
