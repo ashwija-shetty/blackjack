@@ -11,6 +11,7 @@ function Controls(props) {
 
   useEffect(() => {
     validation();
+    disableBtn(false);
   }, [amount, props.balance]);
 
   const validation = () => {
