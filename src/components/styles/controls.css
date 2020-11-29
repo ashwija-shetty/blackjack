@@ -119,3 +119,13 @@
   box-shadow: none;
   text-shadow: none;
 }
+
+.bet-enable {
+  pointer-events: inherit;
+}
+.bet-disable {
+  color: #a7a6a5;
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+}

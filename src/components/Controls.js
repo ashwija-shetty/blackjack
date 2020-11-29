@@ -7,6 +7,7 @@ import { faSignInAlt } from "@fortawesome/free-solid-svg-icons";
 function Controls(props) {
   const [amount, setAmount] = useState(10);
   const [inputStyle, setInputStyle] = useState("input");
+  const [betBtnState, disableBtn] = useState(false);
 
   useEffect(() => {
     validation();
@@ -31,7 +32,7 @@ function Controls(props) {
 
   const onBetClick = (e) => {
     if (validation()) {
-      console.log(e);
+      disableBtn(true);
       props.betEvent(Math.round(amount * 100) / 100);
     }
   };
@@ -52,9 +53,11 @@ function Controls(props) {
             />
           </div>
           <FontAwesomeIcon
-            className="bet-button"
+            id="bet"
             icon={faSignInAlt}
             size="4x"
+            aria-disabled={betBtnState}
+            className={betBtnState === true ? "bet-disable" : "bet-enable"}
             onClick={(e) => onBetClick(e)}
           />
         </div>
